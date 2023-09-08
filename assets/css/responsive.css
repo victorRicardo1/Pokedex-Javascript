@@ -9,6 +9,9 @@
     .pokemons .pokemon{
         background-position: center
     }
+    .pokemons .details img{
+        height: 90px;
+    }
 }
 
 @media screen and (max-width: 374px) {

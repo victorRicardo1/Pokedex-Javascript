@@ -1,7 +1,35 @@
-const offset = 0;
-const limit = 10;
-const url = `http://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
+const loadMoreButton = document.getElementById('load-more');
+const pokemonList = document.getElementById('pokemonList')
+const limit = 6;
+let offset = 0;
 
-fetch(url).then((response)=>{
-    console.log(response);
-}) //Fetch nos retorna promise e o then nos dirá que quando a resposta do fetch for processada ele executará a função
+
+function convertPokemonTypes(pokemonTypes){
+    return pokemonTypes.map((typeSlot) => `<li class="${typeSlot.type.name}">${typeSlot.type.name}</li>`) 
+}
+
+function loadPokemonItens(offset, limit){
+     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+        const newHtml = pokemons.map((pokemon)=> 
+        ` 
+        <li class="pokemon ${pokemon.mainType} general">
+        <span class="number">#00${pokemon.id}</span>
+        <span class="name">${pokemon.name}</span>
+        <div class="details">
+            <ol class="types">
+                ${pokemon.types.map((type)=> `<li class="type ${type}">${type}</li>`).join('')}
+            </ol>
+            <img src="${pokemon.photo}" alt="${pokemon.name}">
+        </div>
+         </li>`
+        ).join('')
+        pokemonList.innerHTML += newHtml;
+     })
+}
+
+loadPokemonItens(offset, limit);
+
+loadMoreButton.addEventListener('click', ()=>{
+    offset += limit
+    loadPokemonItens(offset, limit);
+})

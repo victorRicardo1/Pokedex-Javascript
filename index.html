@@ -17,46 +17,18 @@
 <body>
     <section class="content">
         <h1>Pokedex</h1>
-        <ol class="pokemons">
-            <li class="pokemon">
-                <span class="number">#001</span>
-                <span class="name">Bulbassaur</span>
-                <div class="details">
-                    <ol class="types">
-                        <li class="Grass">Grass</li>
-                        <li class="Poison">Poison</li>
-                    </ol>
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="bulbassauro">
-                </div>
-            </li>
-
-            <li class="pokemon">
-                <span class="number">#002</span>
-                <span class="name">Yvissaur</span>
-                <div class="details">
-                    <ol class="types">
-                        <li class="Grass">Grass</li>
-                        <li class="Poison">Poison</li>
-                    </ol>
-
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg" alt="Yivissaur">
-                </div>
-            </li>
-
-            <li class="pokemon">
-                <span class="number">#003</span>
-                <span class="name">Venussaur</span>
-                <div class="details">
-                    <ol class="types">
-                        <li class="Grass">Grass</li>
-                        <li class="Poison">Poison</li>
-
-                    </ol>
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg" alt="Venussaur">
-                </div>
-            </li>
+        <ol id="pokemonList" class="pokemons">
+          
         </ol>
+        <div class="pagination">
+            <button type="button" id="load-more">
+                More...
+            </button>
+        </div>
     </section>
+
+    <script src="/assets/js/pokemon-model.js"></script>
+    <script src="/assets/js/pokeApi.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
 
